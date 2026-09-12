@@ -126,7 +126,13 @@ void sendHeartbeatToServer(String statusMessage = "idle") {
   WiFiClient client;
   HTTPClient http;
 
-  String url = String(OTA_SERVER_HOST) + "/api/ota/heartbeat";
+  String url;
+  #if USE_PHP_LARAGON
+    url = String(OTA_SERVER_HOST) + "/api.php?action=heartbeat";
+  #else
+    url = String(OTA_SERVER_HOST) + "/api/ota/heartbeat";
+  #endif
+
   http.begin(client, url);
   http.addHeader("Content-Type", "application/json");
 
@@ -176,10 +182,16 @@ void checkAndExecuteOtaUpdate() {
   WiFiClient client;
   HTTPClient http;
 
-  // Endpoint: GET /api/ota/check?version=x.x.x&mac=XXXX&md5=YYYY
-  String url = String(OTA_SERVER_HOST) + "/api/ota/check?version=" + runningFirmwareVersion 
-               + "&mac=" + getMacAddressFormatted() 
-               + "&md5=" + currentFlashedMD5;
+  String url;
+  #if USE_PHP_LARAGON
+    url = String(OTA_SERVER_HOST) + "/api.php?action=check&version=" + runningFirmwareVersion 
+          + "&mac=" + getMacAddressFormatted() 
+          + "&md5=" + currentFlashedMD5;
+  #else
+    url = String(OTA_SERVER_HOST) + "/api/ota/check?version=" + runningFirmwareVersion 
+          + "&mac=" + getMacAddressFormatted() 
+          + "&md5=" + currentFlashedMD5;
+  #endif
   
   http.begin(client, url);
   int httpCode = http.GET();
