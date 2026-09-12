@@ -1,0 +1,21 @@
+{
+  "firmware": {
+    "version": "1.0.0",
+    "filename": "",
+    "originalName": "",
+    "size": 0,
+    "md5": "",
+    "uploadDate": "",
+    "changelog": "Versi awal (Initial firmware release)",
+    "targetMac": ""
+  },
+  "spiffs": {
+    "version": "1.0.0",
+    "filename": "",
+    "originalName": "",
+    "size": 0,
+    "md5": "",
+    "uploadDate": "",
+    "changelog": ""
+  }
+}
