@@ -1,13 +1,12 @@
 {
   "firmware": {
-    "version": "1.0.2",
-    "filename": "firmware_1789099524508.bin",
-    "originalName": "ESP32_OTA_Client.ino.bin",
-    "size": 954976,
-    "md5": "47147a6e811de4739174737851eafb61",
-    "uploadDate": "2026-09-11T04:05:24.524Z",
+    "version": "1.0.0",
+    "filename": "",
+    "originalName": "",
+    "size": 0,
+    "uploadDate": "",
     "changelog": "",
-    "targetMac": "004B12389754"
+    "targetMac": ""
   },
   "spiffs": {
     "version": "1.0.0",
